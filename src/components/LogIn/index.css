@@ -1,0 +1,10 @@
+
+ .LogInWrapper{
+    background-color: yellow;
+    width: 40%;
+    padding: 20px 0;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

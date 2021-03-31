@@ -1,25 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import LogIn from "./components/LogIn";
+import ChatList from "./components/ChatList";
+import TopPanel from "./components/topPanel";
+import api from './firebase';
+
+// const userContext = React.createContext(null)
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [user, setUser] = useState("");
+  const [isLogged, setIsLogged] = useState(false);
+
+  console.log(isLogged);
+  const hanldeChange = (e) => {
+    setUser(e.target.value);
+  };
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (user !== "") {
+      setIsLogged(true);
+    }
+    const refItems = api.ref('mesagges')
+    const item = {
+      user: user
+    }
+    refItems.push(item)
+  
+  };
+
+  if (!isLogged){
+    return <LogIn onChange={hanldeChange} value={user} onClick={handleClick} />
+  } else{ 
+  return(
+        <div>
+          <TopPanel user={user} setIsLogged={setIsLogged}/>
+          <ChatList user={user}/>
+        </div>
+  )
+  }
+  // return (
+  //   <div>
+  //     {{ isLogged } ? (
+  //    <LogIn onChange={hanldeChange} value={user} onClick={handleClick} />
+  //     ) :  (
+  //       <div>
+  //         <TopPanel user={user} onClick={setIsLogged(true)} />
+  //         <ChatList />
+  //       </div>
+  //     )
+  //     }
+  //   </div>
+  // );
 }
 
 export default App;
