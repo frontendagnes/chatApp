@@ -3,7 +3,7 @@ import "./App.css";
 import LogIn from "./components/LogIn";
 import ChatList from "./components/ChatList";
 import TopPanel from "./components/topPanel";
-import api from './firebase';
+// import api from './firebase';
 
 // const userContext = React.createContext(null)
 
@@ -11,7 +11,6 @@ function App() {
   const [user, setUser] = useState("");
   const [isLogged, setIsLogged] = useState(false);
 
-  console.log(isLogged);
   const hanldeChange = (e) => {
     setUser(e.target.value);
   };
@@ -20,11 +19,11 @@ function App() {
     if (user !== "") {
       setIsLogged(true);
     }
-    const refItems = api.ref('mesagges')
-    const item = {
-      user: user
-    }
-    refItems.push(item)
+    // const refItems = api.ref('mesagges')
+    // const item = {
+    //   user: user
+    // }
+    // refItems.push(item)
   
   };
 

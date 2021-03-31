@@ -23,8 +23,6 @@ const [text, setText] = useState('')
       })
 
     }, [])
-    console.log(items)
-
 const handleChange = (e) => {
     setText(e.target.value)
   }
@@ -32,15 +30,23 @@ const handleChange = (e) => {
   const handleClick = () => {
     const item = {
       content: text,
-      user: props.user || "Nieznany",
+      user: props.user || "Lola z przedszkola",
       datetime: Date.now(),
     }
-    const itemsRef = api.ref("messages")
-    itemsRef.push(item)
+    if(text){
+      api.ref("messages")
+        .push(item)
+        .then(() => {
+          setText('')
+      // window.scrollTo(0, document.body.scrollHeight);
+        })
+      .catch((error) => console.log(error))
+    } else {return alert("enter your message")}
 
   }
   const DeleteItem = (id) => {
     const itemsRef = api.ref(`messages/${id}`)
+    console.log("id", id)
     console.log('do usuniecia ', itemsRef)
     itemsRef.remove()
   }
