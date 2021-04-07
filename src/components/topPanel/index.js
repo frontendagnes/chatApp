@@ -3,7 +3,9 @@ import { TopPanleSpan, TpoPanelHeader, TopPanelButton } from './themeTopPanel'
 const TopPanel = (props) => {
 
     const handleClick = () =>{
-        props.setIsLogged(false);
+        localStorage.removeItem("isLogged")
+        props.setIsLogged(localStorage.getItem("isLogged"));
+
 }
 return(
     <TpoPanelHeader>

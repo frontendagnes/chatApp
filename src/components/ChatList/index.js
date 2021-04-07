@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import ChatItem from "../ChatItem";
 import AddItem from '../AddItem';
 import api from '../../firebase';
+// import authContext from '../../Context';
 
 const ChatList = (props) => {
 
+//  const { items, setItems } = useContext(authContext); 
 const [items, setItems] = useState([])
 const [text, setText] = useState('')
     useEffect(() => {
@@ -21,7 +23,6 @@ const [text, setText] = useState('')
         }
           setItems(newState)
       })
-
     }, [])
 const handleChange = (e) => {
     setText(e.target.value)
@@ -42,19 +43,13 @@ const handleChange = (e) => {
         })
       .catch((error) => console.log(error))
     } else {return alert("enter your message")}
-
-  }
-  const DeleteItem = (id) => {
-    const itemsRef = api.ref(`messages/${id}`)
-    console.log("id", id)
-    console.log('do usuniecia ', itemsRef)
-    itemsRef.remove()
   }
 
   return (
     <div>
-      <ChatItem items={items} DeleteItem={() => DeleteItem(items.id)}/>
-      <AddItem onChange={handleChange} value={text} onClick={handleClick}/>
+      
+      <ChatItem items={items} /> 
+      <AddItem onChange={handleChange} value={text} onClick={handleClick}/>   
     </div>
   );
 };

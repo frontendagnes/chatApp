@@ -4,7 +4,7 @@ export const ChatItemUl = styled.ul`
 list-style-type: none;
 `;
 
-export const CahtItemLi = styled.li`
+export const ChatItemLi = styled.li`
 border: 2px solid black;
 display: flex;
 flex-flow: wrap column;

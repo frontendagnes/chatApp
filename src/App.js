@@ -8,28 +8,28 @@ import TopPanel from "./components/topPanel";
 // const userContext = React.createContext(null)
 
 function App() {
-  const [user, setUser] = useState("");
-  const [isLogged, setIsLogged] = useState(false);
-
+  const [user, setUser] = useState(localStorage.getItem('name'));
+  let [isLogged, setIsLogged] = useState(localStorage.getItem("isLogged"));
+  
   const hanldeChange = (e) => {
     setUser(e.target.value);
   };
+
   const handleClick = (e) => {
     e.preventDefault();
     if (user !== "") {
-      setIsLogged(true);
-    }
-    // const refItems = api.ref('mesagges')
-    // const item = {
-    //   user: user
-    // }
-    // refItems.push(item)
-  
+      localStorage.setItem("isLogged", true)
+      setIsLogged(localStorage.getItem("isLogged"));
+    } else{return alert("enter nickname")}
+
+    localStorage.setItem('name', user)
+    setUser(localStorage.getItem('name'))
   };
+
 
   if (!isLogged){
     return <LogIn onChange={hanldeChange} value={user} onClick={handleClick} />
-  } else{ 
+  } else { 
   return(
         <div>
           <TopPanel user={user} setIsLogged={setIsLogged}/>
