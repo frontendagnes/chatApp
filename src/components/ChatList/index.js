@@ -9,6 +9,8 @@ const ChatList = (props) => {
 //  const { items, setItems } = useContext(authContext); 
 const [items, setItems] = useState([])
 const [text, setText] = useState('')
+
+
     useEffect(() => {
       api.ref('/messages').on('value', (data) => {
         let messages = data.val()
