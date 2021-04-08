@@ -11,11 +11,11 @@ const UpdateItem = (props) => {
     
     return(
       <div>
-        <input onChange={handleChange} value={props.value}/>
+        <input className="input" onChange={handleChange} value={props.value}/>
         <button onClick={props.onClick}>update</button>
      </div>
     )
-    
+      
     }
 
 export default UpdateItem

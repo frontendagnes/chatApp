@@ -1,7 +1,7 @@
-import React, { useState, useRef, useEffect } from "react";
-import { ChatItemUl, ChatItemLi, ChatItemSpanName, ChatItemDivConent, ChatItemButton } from './themeChatItem';
+import React, { useState } from "react";
+import { ChatItemUl, ChatItemLi, ChatItemSpanName, ChatItemDivContent, ChatItemButton } from './themeChatItem';
 import api from '../../firebase';
-import UpdateItem from './UpdateItem';
+// import UpdateItem from './UpdateItem';
 
 const ChatItem = (props) => {
   function convertDate(timestamp){
@@ -9,43 +9,38 @@ const ChatItem = (props) => {
     return datatime.toLocaleDateString();
 }
 
-// const [content, setContent] = useState('')
-const [update, setUpdate] = useState('')
-const [isActive, setIsActive] = useState(false)
-let inputRef = useRef()
+const [state, setState] = useState({
+  update: '',
+  isActive: false
+})
 
-// const handleChange = (e) => {
-//   setUpdate(e.target.value)
-// }
+const handleChange = (e) => {
+  setState({
+    [e.target.name]: e.target.value
+  })
+}
 
 const DeleteItem = (id) => {
   const itemsRef = api.ref(`messages/${id}`)
   itemsRef.remove()
   }
 
-const handleUpdateItem = (id) => {
+const handleUpdateItem = (e, id) => {
+
+
+  
 const refItem = api.ref(`messages/${id}`)
+console.log("up", state.update)
 refItem.update({
-  content: update
+  content: state.update
 })
 }
 
-const EditInput = (e) => {
-  e.preventDefault()
-const name = (n) => {
+// const handleEditInput = () => {
 
-    
-  // return(
-  //   n = inputRef.current
-  // )
-} 
-console.log(name())
-setIsActive(!isActive)
-// if(item === name){
-// setIsActive(!isActive)
-//   // inputRef.current.disabled = false
+// setState({
+//   isActive: !state.isActive})
 // }
-}
   return (
     <div>
       <ChatItemUl>
@@ -55,14 +50,17 @@ setIsActive(!isActive)
               <div>
               <ChatItemSpanName>{item.user}</ChatItemSpanName>  <span>{item.datetime ? `| ${convertDate(item.datetime)}` : ''}</span>
               </div>
-              <ChatItemDivConent>
-                <button onClick={EditInput}>edit...</button>
+              <ChatItemDivContent>
                 <span>{item.content}</span>
-                {
-                  isActive && item.id  ? <UpdateItem  setUpdate={setUpdate} value={update || item.content} onClick={() => handleUpdateItem(item.id)} /> : ''
-                }
-                </ChatItemDivConent>
+                <span>
+                  {/* <button onClick={handleEditInput}>edit</button> */}
+                  <input name={item.id} onChange={handleChange} value={state.update}/>
+                  <button onClick={() => handleUpdateItem(item.id) }>Update</button>
+                </span>
+              </ChatItemDivContent>
               <ChatItemButton onClick = {() => DeleteItem(item.id)}>Delete</ChatItemButton>
+              {/* <ChatItemButton onClick = {handleEditInput}>Update</ChatItemButton> */}
+    
             </ChatItemLi>
           );
         })}

@@ -20,7 +20,9 @@ font-weight: bold;
 font-size: 24px;
 `;
 
-export const ChatItemDivConent = styled.div`
+export const ChatItemDivContent = styled.div`
+display: flex;
+justify-content: space-between;
     border: 1px dotted black;
     margin-top: 10px;
     margin-bottom: 10px;

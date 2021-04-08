@@ -20,7 +20,8 @@ const [text, setText] = useState('')
             id: message,
             content: messages[message].content,
             datetime: messages[message].datetime,
-            user: messages[message].user
+            user: messages[message].user,
+            isEdit: false
           })
         }
           setItems(newState)
@@ -35,6 +36,7 @@ const handleChange = (e) => {
       content: text,
       user: props.user || "Lola z przedszkola",
       datetime: Date.now(),
+      isEdit: false,
     }
     if(text){
       api.ref("messages")
