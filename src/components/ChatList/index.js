@@ -21,12 +21,13 @@ const [text, setText] = useState('')
             content: messages[message].content,
             datetime: messages[message].datetime,
             user: messages[message].user,
-            isEdit: false
+            isEdit: messages[message].isEdit
           })
         }
           setItems(newState)
       })
     }, [])
+
 const handleChange = (e) => {
     setText(e.target.value)
   }
