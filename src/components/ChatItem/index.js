@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { ChatItemUl, ChatItemLi, ChatItemSpanName, ChatItemDivContent, ChatItemButton } from './themeChatItem';
+import React, { useState } from "react";
+import { ChatItemUl, ChatItemLi, ChatItemSpanName, ChatItemDivContent, ChatItemButton, ChatItemBtnEdit } from './themeChatItem';
 import api from '../../firebase';
-// import UpdateItem from './UpdateItem';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit } from "@fortawesome/free-solid-svg-icons";
 
 const ChatItem = (props) => {
   function convertDate(timestamp){
@@ -11,17 +12,14 @@ const ChatItem = (props) => {
 
 const [state, setState] = useState({
   update: '',
-  isEdit: false,
   user: localStorage.getItem("name")
-})
-useEffect(() => {
-  console.log(state.user)
 })
 
 const handleChange = (e) => {
   setState({
     [e.target.name]: e.target.value,
-    update: e.target.value
+    update: e.target.value,
+    user: localStorage.getItem("name")
   })
 }
 
@@ -30,23 +28,21 @@ const DeleteItem = (id) => {
   itemsRef.remove()
   }
 
-const handleUpdateItem = (id) => {
+const handleUpdateItem = (id, edit) => {
 const refItem = api.ref(`messages/${id}`)
 refItem.update({
-  content: state.update
+  content: state.update,
+  isEdit: !edit
+})
+setState({
+  user: localStorage.getItem("name")
 })
 }
-const toggleEdit = () => {
-  setState({
-    isEdit: !state.isEdit
-  })
-  return state.isEdit
 
-}
-const handleEditInput = (id) => {
+const handleEditInput = (id, edit) => {
  const refItem = api.ref(`messages/${id}`)
   refItem.update({
-    isEdit: toggleEdit()
+    isEdit: !edit
   })
 }
   return (
@@ -64,14 +60,14 @@ const handleEditInput = (id) => {
                 </span>
                 {item.isEdit &&
                   <span>
-                  <button onClick={() => handleUpdateItem(item.id) }>Update</button>
+                  <button onClick={() => handleUpdateItem(item.id, item.isEdit) }>Update</button>
                   <input name={item.id} onChange={handleChange} />
                 </span>
                 }
-                 {state.user === item.user &&
-                   <button onClick={() => handleEditInput(item.id)}>edit</button>
-               } 
-              </ChatItemDivContent>
+                { state.user === item.user &&
+                  <ChatItemBtnEdit className='btn' onClick={() => handleEditInput(item.id, item.isEdit)}><FontAwesomeIcon icon={faEdit} /></ChatItemBtnEdit>
+                }
+                </ChatItemDivContent>
               <ChatItemButton onClick = {() => DeleteItem(item.id)}>Delete</ChatItemButton>  
             </ChatItemLi>
           );

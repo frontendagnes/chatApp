@@ -27,29 +27,18 @@ function App() {
   };
 
 
-  if (!isLogged){
-    return <LogIn onChange={hanldeChange} value={user} onClick={handleClick} />
-  } else { 
-  return(
+ return (
+    <div>
+      { !isLogged  ?
+        <LogIn onChange={hanldeChange} value={user} onClick={handleClick} />
+       : 
         <div>
-          <TopPanel user={user} setIsLogged={setIsLogged}/>
+          <TopPanel user={user} setIsLogged={setIsLogged} />
           <ChatList user={user}/>
         </div>
-  )
-  }
-  // return (
-  //   <div>
-  //     {{ isLogged } ? (
-  //    <LogIn onChange={hanldeChange} value={user} onClick={handleClick} />
-  //     ) :  (
-  //       <div>
-  //         <TopPanel user={user} onClick={setIsLogged(true)} />
-  //         <ChatList />
-  //       </div>
-  //     )
-  //     }
-  //   </div>
-  // );
+      }
+    </div>
+  );
 }
 
 export default App;

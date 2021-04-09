@@ -42,3 +42,10 @@ export const ChatItemButton = styled.button`
     cursor: pointer;
     border-radius: 5px;
 `;
+
+export const ChatItemBtnEdit = styled.button`
+    background: transparent;
+    border: transparent;
+    font-size: 24px;
+    cursor:pointer;
+`
