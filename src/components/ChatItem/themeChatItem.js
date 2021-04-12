@@ -49,3 +49,20 @@ export const ChatItemBtnEdit = styled.button`
     font-size: 24px;
     cursor:pointer;
 `
+
+export const ChatItemBtnUpdate = styled.button`
+    width: 100px;
+    font-size: 14px;
+    margin-left: 5px;
+    background-color: #008000;
+    color: #ffffff;
+    border: transparent;
+    padding: 5px 10px;
+    border-radius: 5px;
+`
+export const ChatItemInputUpdate = styled.input`
+padding: 5px 10px;
+border-radius: 5px;
+border: 1px solid #808080;
+font-size: 16px;
+`
