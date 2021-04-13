@@ -3,6 +3,8 @@ import ChatItem from "../ChatItem";
 import AddItem from "../AddItem";
 import SearchEngine from "../SearchEngine";
 import api from "../../firebase";
+import { ChatListWrapper } from './themeChatList'
+import NewMessages from "../ChatItem/NewMessages";
 
 const ChatList = (props) => {
   const [items, setItems] = useState([]);
@@ -25,6 +27,7 @@ const ChatList = (props) => {
       setItems(newState);
       setSearch(newState);
     });
+
   }, []);
 
   const handleChange = (e) => {
@@ -44,7 +47,7 @@ const ChatList = (props) => {
         .push(item)
         .then(() => {
           setText("");
-          // window.scrollTo(0, document.body.scrollHeight);
+          window.scrollTo(0, document.body.scrollHeight);
         })
         .catch((error) => console.log(error));
     } else {
@@ -53,11 +56,11 @@ const ChatList = (props) => {
   };
 
   return (
-    <div>
+    <ChatListWrapper> 
       <SearchEngine items={items} setSearch={setSearch} />
       <ChatItem items={search} />
       <AddItem onChange={handleChange} value={text} onClick={handleClick} />
-    </div>
+    </ChatListWrapper>
   );
 };
 

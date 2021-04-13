@@ -8,16 +8,21 @@ left:10px;
 `;
 
 export const AddItemInput = styled.input`
-height: 20px;
-padding: 5px;
-width: 300px;
+padding: 10px 20px;
+width: 50%;
+height: 40px;
 color: black;
-
+border-radius: 5px
 `;
 
 export const AddItemButton = styled.button`
-padding: 10px;
-margin-left: 5px;
+transition: all 0.75s;
+font-size: 36px;
+border: transparent;
+background: transparent;
 cursor: pointer;
-border-radius: 5px;
+color: #008000;
+&:hover{
+    color: #b5f5b5;
+}
 `;

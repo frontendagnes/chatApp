@@ -1,5 +1,5 @@
 import React from "react";
-
+import { SearchEngineDiv, SearchEngineInput } from './themeSearchEngine'
 const SearchEngine = (props) => {
   const handleChange = (e) => {
     let value = e.target.value;
@@ -13,12 +13,12 @@ const SearchEngine = (props) => {
   };
 
   return (
-    <div>
-      <input
-        placeholder="enter the user name"
+    <SearchEngineDiv>
+      <SearchEngineInput
+        placeholder="Search for a user"
         onChange={(e) => handleChange(e)}
       />
-    </div>
+    </SearchEngineDiv>
   );
 };
 

@@ -30,27 +30,21 @@ justify-content: space-between;
     border-radius: 5px;
 `;
 
-export const ChatItemButton = styled.button`
-    width: 200px;
-    margin: 0 auto;
-    padding: 10px 20px;
-    background-color: orangered;
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
-    border: transparent;
-    cursor: pointer;
-    border-radius: 5px;
-`;
 
-export const ChatItemBtnEdit = styled.button`
+export const ChatItemBtn = styled.button`
+transition: all 0.75s;
     background: transparent;
     border: transparent;
     font-size: 24px;
     cursor:pointer;
+    color: ${props => props.delete ? "#ff0000" : "#008000"};
+    &:hover{
+        color: ${props => props.delete ? "#ff7e7e" : "#b5f5b5"};
+    }
 `
 
 export const ChatItemBtnUpdate = styled.button`
+transition: all 0.75s;
     width: 100px;
     font-size: 14px;
     margin-left: 5px;
@@ -59,10 +53,22 @@ export const ChatItemBtnUpdate = styled.button`
     border: transparent;
     padding: 5px 10px;
     border-radius: 5px;
+    cursor: pointer;
+    &:hover{
+        background-color: #b5f5b5;
+        color: #000000
+    }
 `
 export const ChatItemInputUpdate = styled.input`
 padding: 5px 10px;
 border-radius: 5px;
 border: 1px solid #808080;
 font-size: 16px;
+`
+export const ChatItemFound = styled.div`
+display: flex;
+justify-content: center;
+fonr-size: 24px;
+color: #ff0000;
+margin-bottom: 50px;
 `

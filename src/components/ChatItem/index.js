@@ -4,14 +4,15 @@ import {
   ChatItemLi,
   ChatItemSpanName,
   ChatItemDivContent,
-  ChatItemButton,
-  ChatItemBtnEdit,
+  ChatItemBtn,
   ChatItemBtnUpdate,
   ChatItemInputUpdate,
+  ChatItemFound,
 } from "./themeChatItem";
 import api from "../../firebase";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit } from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import NewMessages from "./NewMessages";
 
 const ChatItem = (props) => {
   function convertDate(timestamp) {
@@ -78,29 +79,34 @@ const ChatItem = (props) => {
                       />
                       <ChatItemBtnUpdate
                         onClick={() => handleUpdateItem(item.id, item.isEdit)}
+                        title="Update"
                       >
                         Update
                       </ChatItemBtnUpdate>
                     </span>
                   )}
                   {state.user === item.user && (
-                    <ChatItemBtnEdit
+                    <div>
+                    <ChatItemBtn
                       className="btn"
                       onClick={() => handleEditInput(item.id, item.isEdit)}
+                      title='Update'
                     >
                       <FontAwesomeIcon icon={faEdit} />
-                    </ChatItemBtnEdit>
+                    </ChatItemBtn>
+                    <ChatItemBtn delete onClick={() => handleDeleteItem(item.id)} title='Delete'>
+                      <FontAwesomeIcon icon={faTrashAlt} />
+                    </ChatItemBtn>
+                </div>
                   )}
                 </ChatItemDivContent>
-                <ChatItemButton onClick={() => handleDeleteItem(item.id)}>
-                  Delete
-                </ChatItemButton>
-              </ChatItemLi>
+              </ChatItemLi>                       
             );
           })}
+
         </ChatItemUl>
       ) : (
-       <div> Not found </div>
+       <ChatItemFound> Not found </ChatItemFound>
       )}
     </div>
   );
