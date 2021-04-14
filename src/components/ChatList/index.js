@@ -4,12 +4,12 @@ import AddItem from "../AddItem";
 import SearchEngine from "../SearchEngine";
 import api from "../../firebase";
 import { ChatListWrapper } from './themeChatList'
-import NewMessages from "../ChatItem/NewMessages";
-
+import NewMessages from '../ChatItem/NewMessages'
 const ChatList = (props) => {
   const [items, setItems] = useState([]);
   const [text, setText] = useState("");
   const [search, setSearch] = useState(items);
+  // const [isVisible, setIsVisible] = useState(true)
 
   useEffect(() => {
     api.ref("/messages").on("value", (data) => {
@@ -34,12 +34,13 @@ const ChatList = (props) => {
     setText(e.target.value);
   };
 
-  const handleClick = () => {
+  const handleClick = async () => {
     const item = {
       content: text,
       user: props.user || "Lola z przedszkola",
       datetime: Date.now(),
       isEdit: false,
+      info: `${props.user} send message`,
     };
     if (text) {
       api
@@ -56,7 +57,8 @@ const ChatList = (props) => {
   };
 
   return (
-    <ChatListWrapper> 
+    <ChatListWrapper>
+      <NewMessages /> 
       <SearchEngine items={items} setSearch={setSearch} />
       <ChatItem items={search} />
       <AddItem onChange={handleChange} value={text} onClick={handleClick} />
