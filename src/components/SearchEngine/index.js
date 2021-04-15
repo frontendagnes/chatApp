@@ -14,7 +14,7 @@ const SearchEngine = (props) => {
 
   return (
     <SearchEngineDiv>
-      <SearchEngineInput
+      <SearchEngineInput 
         placeholder="Search for a user"
         onChange={(e) => handleChange(e)}
       />

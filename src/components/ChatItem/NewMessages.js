@@ -4,7 +4,7 @@ import api from '../../firebase';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 
-const NewMessages = (props) => {
+const NewMessages = () => {
     const [info, setInfo] = useState([])
     
     
@@ -23,10 +23,7 @@ const NewMessages = (props) => {
         })
 
     }, [])
-    // const hendleTimeOut = (e) => {
-    //     e.setTimeout(handleRemoveItem, 2000)
-    //     console.log("Załadowałem się")
-    // }
+
     const handleUpdateInfo = (id) => {
         const refItem = api.ref(`messages/${id}`);
         refItem.update({

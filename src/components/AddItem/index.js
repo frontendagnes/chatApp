@@ -8,7 +8,7 @@ const AddItem = (props) => {
   
     return(
         <AddItemDiv>
-            <AddItemInput onChange = {props.onChange} value={props.value} placeholder="Enter text" />
+            <AddItemInput id="scroll" onChange = {props.onChange} value={props.value} placeholder="Enter text" />
             <AddItemButton onClick = {props.onClick} title="Send"><FontAwesomeIcon icon={faPaperPlane}/></AddItemButton>
 
         </AddItemDiv>

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const AddItemDiv = styled.div`
-// position: fixed;
 text-align: center;
 margin-bottom:30px;
 left:10px;
@@ -12,7 +11,11 @@ padding: 10px 20px;
 width: 50%;
 height: 40px;
 color: black;
-border-radius: 5px
+border-radius: 5px;
+margin-top: 10px;
+@media (max-width: 700px) {
+    width: 70%;
+}
 `;
 
 export const AddItemButton = styled.button`

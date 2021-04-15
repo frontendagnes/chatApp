@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const ChatItemUl = styled.ul`
 list-style-type: none;
+margin: 0;
+padding: 0;
 `;
 
 export const ChatItemLi = styled.li`
@@ -9,8 +11,9 @@ border: 2px solid black;
 display: flex;
 flex-flow: wrap column;
 padding: 10px 10px;
-width: 800px;
-margin: 10px auto;
+width: 90%;
+margin: 0 auto;
+margin-top: 10px;
 border-radius: 5px;
 `;
 

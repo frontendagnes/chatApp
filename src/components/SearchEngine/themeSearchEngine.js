@@ -10,4 +10,7 @@ export const SearchEngineInput = styled.input`
     width: 60%;
     height: 30px;
     border-radius: 5px;
+    @media (max-width: 700px) {
+        width: 90%;
+    }
 `

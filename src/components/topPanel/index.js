@@ -10,8 +10,8 @@ const TopPanel = (props) => {
     props.setIsLogged(localStorage.getItem("isLogged"));
   };
   return (
-<Wrapper>
-    <TpoPanelHeader className="header">
+<Wrapper id='scrollSearchEngine'>
+    <TpoPanelHeader>
         <TopPanleSpanTop>
             <Logo />
         </TopPanleSpanTop>

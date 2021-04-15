@@ -6,6 +6,9 @@ export const Wrapper = styled.div`
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
+    @media (max-width: 700px){
+        height: 75vh;
+    }
 `;
 export const LogInWrraper = styled.div`
     width: 40%;
@@ -15,6 +18,9 @@ export const LogInWrraper = styled.div`
     display: flex;
     flex-flow: wrap column;
     align-items: center;
+    @media (max-width: 700px){
+        width: 70%;
+    }
 `;
 
 export const LogInButton = styled.button`
@@ -38,8 +44,7 @@ export const LogInParagrph = styled.p`
      font-weight: bold;
 `;
 export const LogInInput = styled.input`
-
-padding: 10px;
+    padding: 10px;
     border-radius: 5px;
     width: 80%;
     margin-bottom: 20px;

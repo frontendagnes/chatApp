@@ -31,6 +31,10 @@ function App() {
         <LogIn onChange={hanldeChange} value={user} onClick={handleClick} />
       ) : (
         <div>
+          <div>
+            <span className='scrollBtn scrollBtn__Add'><a href='#scroll'>View or add a new entry</a></span> |
+            <span className='scrollBtn scrollBtn__Search'><a href='#scrollSearchEngine'> Go to the search engine</a></span>
+          </div>
           <TopPanel user={user} setIsLogged={setIsLogged} />
           <ChatList user={user} />
         </div>

@@ -5,10 +5,8 @@ import Logo from '../Logo'
 const Footer = () => {
 return(
     <Div>
-
-        <span>&copy; 2021</span>
-        <span><Logo /></span>
-        <SpanName>created by: <br />Agnieszka Kamińska</SpanName>
+        <span>&copy; 2021 <Logo /></span>
+        <SpanName>created by: Agnieszka Kamińska</SpanName>
     </Div>
 )
 }

@@ -15,12 +15,19 @@ margin: 0 auto;
 position: fixed;
 top: 0;
 background: #ffffff;
+
 `;
 export const TopPanleSpan = styled.span`
 font-size: 24px;
+@media (max-width: 550px) {
+    font-size: 18px;
+}
 `;
 export const TopPanleSpanTop = styled.span`
 font-size: 36px;
+@media (max-width: 550px) {
+    font-size: 28px;
+}
 `;
 export const TopPanelButton = styled.button`
 transition: all 0.75s;
@@ -30,6 +37,7 @@ border: transparent;
 background: transparent;
 font-size: 28px;
 color: #ff0000;
+margin-right: 10px;
 &:hover{
     color: #ff7e7e;
 }

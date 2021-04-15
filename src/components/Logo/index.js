@@ -4,8 +4,8 @@ import { faComments } from "@fortawesome/free-solid-svg-icons";
 
 const Logo = (props) => {
 const style = {
-    fontSize: props.fontSize,
     position: 'absolute',
+    fontSize: props.fontSize,
     top: props.top + 'px',
     left: props.left + 'px',
     bottom: props.bottom + 'px',

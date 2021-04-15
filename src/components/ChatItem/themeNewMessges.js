@@ -10,6 +10,7 @@ transition: all 0.75s;
     margin-left: 5px;
     border-radius: 5px;
     font-size: 18px;
+    z-index: 2;
 `
 
 export const Button = styled.button`
