@@ -1,8 +1,9 @@
 import React from "react";
 import { Wrapper, TopPanleSpan, TpoPanelHeader, TopPanelButton, TopPanleSpanTop } from "./themeTopPanel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faComments, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
-import './style.css';
+import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import Logo from '../Logo';
+
 const TopPanel = (props) => {
   const handleClick = () => {
     localStorage.removeItem("isLogged");
@@ -12,8 +13,7 @@ const TopPanel = (props) => {
 <Wrapper>
     <TpoPanelHeader className="header">
         <TopPanleSpanTop>
-            <FontAwesomeIcon icon={faComments} />
-            <span>ChatApp</span>
+            <Logo />
         </TopPanleSpanTop>
         <TopPanleSpan>
             <span> Witaj! <b>{props.user}</b> |</span>

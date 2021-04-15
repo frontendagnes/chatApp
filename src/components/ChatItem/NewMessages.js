@@ -27,7 +27,7 @@ const NewMessages = (props) => {
     //     e.setTimeout(handleRemoveItem, 2000)
     //     console.log("Załadowałem się")
     // }
-    const handleRemoveItem = (id) => {
+    const handleUpdateInfo = (id) => {
         const refItem = api.ref(`messages/${id}`);
         refItem.update({
             info:''
@@ -36,16 +36,13 @@ const NewMessages = (props) => {
         return(
         <>  
             {info.map((item) => {
-                     return(
-                    <div>              
-                        {(item.info && item.info !== '') &&    
-                            <Wrapper>
-                                <div key={item.id}> {item.info} <Button onClick={() => handleRemoveItem(item.id)}><FontAwesomeIcon icon={faTimesCircle} /></Button></div>
-                            </Wrapper>         
-                         } 
-                         
+                return(
+                    <div key={item.id}>              
+                        {(item.info && item.info !== '') &&      
+                            <Wrapper>{item.info} <Button onClick={() => handleUpdateInfo(item.id)}><FontAwesomeIcon icon={faTimesCircle} /></Button></Wrapper>
+                        }             
                     </div>
-                        )   
+                )   
                 })
             }
         </>

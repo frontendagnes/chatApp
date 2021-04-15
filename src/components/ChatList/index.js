@@ -3,8 +3,10 @@ import ChatItem from "../ChatItem";
 import AddItem from "../AddItem";
 import SearchEngine from "../SearchEngine";
 import api from "../../firebase";
-import { ChatListWrapper } from './themeChatList'
-import NewMessages from '../ChatItem/NewMessages'
+import { ChatListWrapper } from './themeChatList';
+import NewMessages from '../ChatItem/NewMessages';
+import Footer from '../Footer';
+
 const ChatList = (props) => {
   const [items, setItems] = useState([]);
   const [text, setText] = useState("");
@@ -34,7 +36,7 @@ const ChatList = (props) => {
     setText(e.target.value);
   };
 
-  const handleClick = async () => {
+  const handleClick = () => {
     const item = {
       content: text,
       user: props.user || "Lola z przedszkola",
@@ -62,6 +64,7 @@ const ChatList = (props) => {
       <SearchEngine items={items} setSearch={setSearch} />
       <ChatItem items={search} />
       <AddItem onChange={handleChange} value={text} onClick={handleClick} />
+      <Footer />
     </ChatListWrapper>
   );
 };

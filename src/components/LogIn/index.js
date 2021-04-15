@@ -7,10 +7,13 @@ import {
   Wrapper,
   LogInParagrph
 } from "./themeLogIn";
-
+import Logo from '../Logo/';
+import Footer from '../Footer';
 function LogIn(porps) {
   return (
+    <>
     <Wrapper>
+      <Logo fontSize={48} top={10} left={10} />
       <LogInWrraper>
         <LogInLabel>
           <LogInParagrph>Wprowadź nickname*</LogInParagrph>
@@ -22,7 +25,9 @@ function LogIn(porps) {
         </LogInLabel>
         <LogInButton onClick={porps.onClick}>Done</LogInButton>
       </LogInWrraper>
-    </Wrapper>
+      </Wrapper>
+      <Footer />
+    </>
   );
 }
 
