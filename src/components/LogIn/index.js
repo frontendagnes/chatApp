@@ -6,14 +6,14 @@ import {
   LogInInput,
   Wrapper,
   LogInParagrph
-} from "./themeLogIn";
+} from "./theme/themeLogIn.js";
 import Logo from '../Logo/';
 import Footer from '../Footer';
 function LogIn(porps) {
   return (
     <>
     <Wrapper>
-      <Logo fontSize={48} top={10} left={10} />
+      <Logo fontSize={56} top={30} left={30} />
       <LogInWrraper>
         <LogInLabel>
           <LogInParagrph>Wprowadź nickname*</LogInParagrph>

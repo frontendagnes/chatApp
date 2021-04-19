@@ -1,5 +1,5 @@
 import React from 'react'
-import { AddItemDiv, AddItemInput, AddItemButton } from './themeAddItem'
+import { AddItemDiv, AddItemInput, AddItemButton } from './theme/themeAddItem'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 // import NewMessages from '../ChatItem/NewMessages';

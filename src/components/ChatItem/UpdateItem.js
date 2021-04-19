@@ -3,8 +3,7 @@ import React from 'react';
 
 const UpdateItem = (props) => {
 
-    // const [update, setUpdate] = useState('')
-    
+     
     const handleChange = (e) => {
       props.setUpdate(e.target.value)
     }

@@ -3,7 +3,7 @@ import ChatItem from "../ChatItem";
 import AddItem from "../AddItem";
 import SearchEngine from "../SearchEngine";
 import api from "../../firebase";
-import { ChatListWrapper } from './themeChatList';
+import { ChatListWrapper } from './theme/themeChatList';
 import NewMessages from '../ChatItem/NewMessages';
 import Footer from '../Footer';
 
@@ -11,10 +11,10 @@ const ChatList = (props) => {
   const [items, setItems] = useState([]);
   const [text, setText] = useState("");
   const [search, setSearch] = useState(items);
-  // const [isVisible, setIsVisible] = useState(true)
 
   useEffect(() => {
-    api.ref("/messages").on("value", (data) => {
+    let ref = api.ref("/messages");
+    ref.on("value", (data) => {
       let messages = data.val();
       let newState = [];
       for (let message in messages) {
@@ -28,9 +28,20 @@ const ChatList = (props) => {
       }
       setItems(newState);
       setSearch(newState);
+      ArchivingMessages(ref)
     });
 
   }, []);
+
+const ArchivingMessages = (ref) => {
+  let now = Date.now();
+  let cutoff = now - 2 * 60 * 60 * 1000;
+  let old = ref.orderByChild('datetime').endAt(cutoff).limitToLast(1);
+    old.on('child_added', function(snapshot) {
+      snapshot.ref.remove();
+  });
+
+}
 
   const handleChange = (e) => {
     setText(e.target.value);
@@ -39,7 +50,7 @@ const ChatList = (props) => {
   const handleClick = () => {
     const item = {
       content: text,
-      user: props.user || "Lola z przedszkola",
+      user: props.user,
       datetime: Date.now(),
       isEdit: false,
       info: `${props.user} send message`,

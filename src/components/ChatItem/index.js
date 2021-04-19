@@ -8,7 +8,7 @@ import {
   ChatItemBtnUpdate,
   ChatItemInputUpdate,
   ChatItemFound,
-} from "./themeChatItem";
+} from "./theme/themeChatItem";
 import api from "../../firebase";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
@@ -87,7 +87,6 @@ const ChatItem = (props) => {
                   {state.user === item.user && (
                     <div>
                     <ChatItemBtn
-                      className="btn"
                       onClick={() => handleEditInput(item.id, item.isEdit)}
                       title='Update'
                     >

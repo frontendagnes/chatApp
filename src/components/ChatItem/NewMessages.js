@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { Wrapper, Button } from './themeNewMessges';
+import { Wrapper, Button } from './theme/themeNewMessges';
 import api from '../../firebase';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";

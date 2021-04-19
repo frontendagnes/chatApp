@@ -8,6 +8,7 @@ export const Div = styled.div`
    padding: 10px 40px;
    font-weight: 600;
    border-top: 1px solid grey;
+   margin-bottom: 30px;
    @media (max-width: 700px){
       flex-flow: column wrap;
       align-items: left;
@@ -15,7 +16,7 @@ export const Div = styled.div`
 
 `
 
-export const SpanName = styled.span`
+export const DivName = styled.div`
 font-size: 22px;
 @media (max-width: 700px){
    margin-top: 30px;

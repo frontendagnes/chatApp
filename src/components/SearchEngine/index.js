@@ -1,5 +1,5 @@
 import React from "react";
-import { SearchEngineDiv, SearchEngineInput } from './themeSearchEngine'
+import { SearchEngineDiv, SearchEngineInput } from './theme/themeSearchEngine'
 const SearchEngine = (props) => {
   const handleChange = (e) => {
     let value = e.target.value;
@@ -14,6 +14,7 @@ const SearchEngine = (props) => {
 
   return (
     <SearchEngineDiv>
+      <p>Search Engine:</p>
       <SearchEngineInput 
         placeholder="Search for a user"
         onChange={(e) => handleChange(e)}

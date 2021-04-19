@@ -67,6 +67,8 @@ padding: 5px 10px;
 border-radius: 5px;
 border: 1px solid #808080;
 font-size: 16px;
+height:30px;
+width: 60%;
 `
 export const ChatItemFound = styled.div`
 display: flex;

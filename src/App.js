@@ -3,7 +3,7 @@ import "./App.css";
 import LogIn from "./components/LogIn";
 import ChatList from "./components/ChatList";
 import TopPanel from "./components/topPanel";
-
+import Links from './components/Link';
 function App() {
   const [user, setUser] = useState(localStorage.getItem("name"));
   let [isLogged, setIsLogged] = useState(localStorage.getItem("isLogged"));
@@ -31,10 +31,7 @@ function App() {
         <LogIn onChange={hanldeChange} value={user} onClick={handleClick} />
       ) : (
         <div>
-          <div>
-            <span className='scrollBtn scrollBtn__Add'><a href='#scroll'>View or add a new entry</a></span> |
-            <span className='scrollBtn scrollBtn__Search'><a href='#scrollSearchEngine'> Go to the search engine</a></span>
-          </div>
+          <Links />
           <TopPanel user={user} setIsLogged={setIsLogged} />
           <ChatList user={user} />
         </div>
