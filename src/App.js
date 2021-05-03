@@ -4,6 +4,7 @@ import LogIn from "./components/LogIn";
 import ChatList from "./components/ChatList";
 import TopPanel from "./components/topPanel";
 import Links from './components/Link';
+import { Provider as ChatProvider} from './utility/Context';
 function App() {
   const [user, setUser] = useState(localStorage.getItem("name"));
   let [isLogged, setIsLogged] = useState(localStorage.getItem("isLogged"));
@@ -11,7 +12,6 @@ function App() {
   const hanldeChange = (e) => {
     setUser(e.target.value);
   };
-
   const handleClick = (e) => {
     e.preventDefault();
     if (user !== "") {
@@ -26,9 +26,11 @@ function App() {
   };
 
   return (
+    
     <div>
+      <ChatProvider value={{user, setUser}} >
       {!isLogged ? (
-        <LogIn onChange={hanldeChange} value={user} onClick={handleClick} />
+        <LogIn onChange={hanldeChange} value={user ? user : ''} onClick={handleClick} />
       ) : (
         <div>
           <Links />
@@ -36,7 +38,9 @@ function App() {
           <ChatList user={user} />
         </div>
       )}
+      </ChatProvider>
     </div>
+    
   );
 }
 

@@ -1,12 +1,11 @@
 import React, {useEffect, useState} from 'react'
 import { Wrapper, Button } from './theme/themeNewMessges';
-import api from '../../firebase';
+import api from '../../utility/firebase';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 
 const NewMessages = () => {
     const [info, setInfo] = useState([])
-    
     
     useEffect(() => {
         api.ref('/messages').on('value', (data) => {
@@ -21,7 +20,9 @@ const NewMessages = () => {
             }
             setInfo(newInfo)
         })
-
+    return() => {
+        setInfo([])
+    }
     }, [])
 
     const handleUpdateInfo = (id) => {
@@ -35,7 +36,7 @@ const NewMessages = () => {
             {info.map((item) => {
                 return(
                     <div key={item.id}>              
-                        {(item.info && item.info !== '') &&      
+                        {(item.info !== '') &&      
                             <Wrapper>{item.info} <Button onClick={() => handleUpdateInfo(item.id)}><FontAwesomeIcon icon={faTimesCircle} /></Button></Wrapper>
                         }             
                     </div>

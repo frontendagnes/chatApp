@@ -24,8 +24,8 @@ font-size: 24px;
 `;
 
 export const ChatItemDivContent = styled.div`
-display: flex;
-justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
     border: 1px dotted black;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -35,19 +35,19 @@ justify-content: space-between;
 
 
 export const ChatItemBtn = styled.button`
-transition: all 0.75s;
+    transition: all 0.75s;
     background: transparent;
     border: transparent;
     font-size: 24px;
     cursor:pointer;
-    color: ${props => props.delete ? "#ff0000" : "#008000"};
+        color: ${props => props.delete ? "#ff0000" : "#008000"};
     &:hover{
         color: ${props => props.delete ? "#ff7e7e" : "#b5f5b5"};
     }
 `
 
 export const ChatItemBtnUpdate = styled.button`
-transition: all 0.75s;
+    transition: all 0.75s;
     width: 100px;
     font-size: 14px;
     margin-left: 5px;
@@ -73,7 +73,7 @@ width: 60%;
 export const ChatItemFound = styled.div`
 display: flex;
 justify-content: center;
-fonr-size: 24px;
+font-size: 24px;
 color: #ff0000;
 margin-bottom: 50px;
 `

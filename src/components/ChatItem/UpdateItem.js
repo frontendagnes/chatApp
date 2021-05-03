@@ -1,9 +1,6 @@
 import React from 'react';
 
-
-const UpdateItem = (props) => {
-
-     
+const UpdateItem = (props) => {    
     const handleChange = (e) => {
       props.setUpdate(e.target.value)
     }
