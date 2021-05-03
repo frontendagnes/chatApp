@@ -11,7 +11,6 @@ const NewMessages = () => {
         api.ref('/messages').on('value', (data) => {
             let infoStan = data.val();
             let newInfo = []
-
             for (let infoKey in infoStan){
                 newInfo.push({
                     id: infoKey,

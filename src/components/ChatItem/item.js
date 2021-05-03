@@ -12,6 +12,12 @@ import { faEdit, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import api from "../../utility/firebase";
 import authContext from "../../utility/Context";
 const Item = ({id, datetime, content, localUser}) => {
+
+  function convertDate(timestamp){
+    const datatime = new Date(timestamp);
+    return datatime.toLocaleString();
+  }
+
     const [update, setUpdate] = useState('')
     const [isEdit, setIsEdit] = useState(false)
 
@@ -41,7 +47,7 @@ const Item = ({id, datetime, content, localUser}) => {
         <div>
           <ChatItemSpanName>{localUser} | </ChatItemSpanName>
           <span>
-            { datetime }
+            { convertDate(datetime) }
           </span>
         </div>
         <ChatItemDivContent>

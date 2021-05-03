@@ -7,7 +7,7 @@ import Links from './components/Link';
 import { Provider as ChatProvider} from './utility/Context';
 function App() {
   const [user, setUser] = useState(localStorage.getItem("name"));
-  let [isLogged, setIsLogged] = useState(localStorage.getItem("isLogged"));
+  const [isLogged, setIsLogged] = useState(localStorage.getItem("isLogged"));
 
   const hanldeChange = (e) => {
     setUser(e.target.value);
@@ -20,13 +20,10 @@ function App() {
     } else {
       return alert("enter nickname");
     }
-
     localStorage.setItem("name", user);
     setUser(localStorage.getItem("name"));
   };
-
-  return (
-    
+  return (   
     <div>
       <ChatProvider value={{user, setUser}} >
       {!isLogged ? (
@@ -40,7 +37,6 @@ function App() {
       )}
       </ChatProvider>
     </div>
-    
   );
 }
 

@@ -48,7 +48,7 @@ const ArchivingMessages = (ref) => {
     const item = {
       content: text,
       user: user,
-      datetime: new Date().toLocaleString(),
+      datetime: Date.now(),
       info: `${user} send message`,
     };
     if (text) {
