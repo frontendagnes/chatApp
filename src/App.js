@@ -14,10 +14,10 @@ function App() {
   };
   const handleClick = (e) => {
     e.preventDefault();
-    if (user !== "") {
+    if (user) {
       localStorage.setItem("isLogged", true);
       setIsLogged(localStorage.getItem("isLogged"));
-    } else {
+    } else{
       return alert("enter nickname");
     }
     localStorage.setItem("name", user);
