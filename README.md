@@ -1,9 +1,9 @@
 # ChatApp
 
-Mój pierwszy samodzielny projekt wykonany w `React`
+Mój pierwszy samodzielny projekt wykonany w `React`. Aplikacja czatu można dodawać wiadomości, edytować, usuwać oraz wyszukiwać usera. Wyszukiwać można we wszystkich nazwach userów, natomiast edytować i usuwać można tylko we wpisanych przez siebie wiadomościach.
 
 ## Documentation
-Projekt został stworzone przez [create-react-app](https://github.com/facebook/create-react-app), w aplikacji zostały uzyte następujące rozwiązania:
+Projekt został stworzone przez [create-react-app](https://github.com/facebook/create-react-app), w aplikacji zostały użyte następujące rozwiązania:
 
 * [firebase](https://www.npmjs.com/package/firebase) - baza danych (proszę i podłączenie własnej bazy danych)
 * [styled-components](https://github.com/styled-components/styled-components) - stylowanie projektu
@@ -35,14 +35,12 @@ Wszystkie pozostałe niezbędne informację znajdują się tutaj: [create-react-
 
 
 ## Contribute
-* Source Code: 
-* Issue Tracker: 
+* Source Code: https://github.com/zabula81/chatApp
+* Issue Tracker: https://github.com/zabula81/chatApp/issues
 * View: 
 
 ## Author
 Agnieszka Kamińska (agnieszka.kaminska@ksiegarnia.edu.pl)
-
-### Other
 
 
 
