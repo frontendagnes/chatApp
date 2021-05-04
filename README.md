@@ -37,7 +37,7 @@ Wszystkie pozostałe niezbędne informację znajdują się tutaj: [create-react-
 ## Contribute
 * Source Code: https://github.com/zabula81/chatApp
 * Issue Tracker: https://github.com/zabula81/chatApp/issues
-* View: 
+* View: https://czatapplication.herokuapp.com/
 
 ## Author
 Agnieszka Kamińska (agnieszka.kaminska@ksiegarnia.edu.pl)
