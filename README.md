@@ -35,8 +35,8 @@ Wszystkie pozostałe niezbędne informację znajdują się tutaj: [create-react-
 
 
 ## Contribute
-* Source Code: https://github.com/zabula81/chatApp
-* Issue Tracker: https://github.com/zabula81/chatApp/issues
+* Source Code: https://github.com/frontendagnes/chatApp
+* Issue Tracker: https://github.com/frontendagnes/chatApp/issues
 * View: https://czatapplication.herokuapp.com/
 
 ## Author
