@@ -37,10 +37,10 @@ Wszystkie pozostałe niezbędne informację znajdują się tutaj: [create-react-
 ## Contribute
 * Source Code: https://github.com/frontendagnes/chatApp
 * Issue Tracker: https://github.com/frontendagnes/chatApp/issues
-* View: https://czatapplication.herokuapp.com/
+* View: https://chatapp-2de74.web.app/
 
 ## Author
-Agnieszka Kamińska (agnieszka.kaminska@ksiegarnia.edu.pl)
+[frontend-agnes](https://frontend-agnes.pl/)
 
 
 

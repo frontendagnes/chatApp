@@ -3,14 +3,15 @@ import 'firebase/database';
 import 'firebase/storage';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAUAhtuolEX8eOYtBeBeZQ2i5cj28sCT-s",
-  authDomain: "chatapp-2de74.firebaseapp.com",
+  apiKey: process.env.REACT_API_KEY,
+  authDomain: process.env.REACT_AUTH_DOMAIN,
   databaseURL: "https://chatapp-2de74-default-rtdb.firebaseio.com",
-  projectId: "chatapp-2de74",
-  storageBucket: "chatapp-2de74.appspot.com",
-  messagingSenderId: "451794529148",
-  appId: "1:451794529148:web:1fc95397728e9cd5bb92f9"
+  projectId: process.env.REACT_PROJECT_ID,
+  storageBucket: process.env.REACT_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_MESSAGINE_SENDER_ID,
+  appId: process.env.REACT_APP_ID,
 };
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 

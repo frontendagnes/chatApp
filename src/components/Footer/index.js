@@ -7,7 +7,7 @@ return(
     <Div>
         <span>&copy; 2021</span> 
         <span><Logo  /></span>
-        <DivName>created by: Agnieszka Kamińska</DivName>
+        <DivName>by: <a href='https://frontend-agnes.pl'>frontend-agnes</a></DivName>
     </Div>
 )
 }
