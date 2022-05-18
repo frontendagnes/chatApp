@@ -22,19 +22,19 @@ const Item = ({ id, datetime, content, localUser }) => {
     const datatime = new Date(timestamp);
     return datatime.toLocaleString("pl-PL");
   };
-  
+
   const handleChange = (e) => {
     setUpdateText(e.target.value);
   };
 
-  const handleDeleteItem = (id) => {
+  const handleDeleteItem = async (id) => {
     const itemsRef = ref(api, `messages/${id}`);
-    remove(itemsRef);
+    await remove(itemsRef);
   };
 
-  const handleUpdateItem = (id) => {
+  const handleUpdateItem = async (id) => {
     const refItem = ref(api, `messages/${id}`);
-    update(refItem, {
+    await update(refItem, {
       content: updateText,
     });
 

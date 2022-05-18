@@ -29,7 +29,7 @@ const ChatList = () => {
       setItems(newState);
       setSearch(newState);
     });
-   
+
     return () => {
       unsuscribe();
     };
@@ -38,8 +38,8 @@ const ChatList = () => {
   const handleChange = (e) => {
     setText(e.target.value);
   };
-  const handleClick = (e) => {
-    e.preventDefault()
+  const handleClick = async (e) => {
+    e.preventDefault();
     const item = {
       content: text,
       user: user,
@@ -50,7 +50,7 @@ const ChatList = () => {
     if (text) {
       const docRef = ref(api, "messages");
 
-      push(docRef, item)
+      await push(docRef, item)
         .then(() => {
           setText("");
           window.scrollTo(0, document.body.scrollHeight);

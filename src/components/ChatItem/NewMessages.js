@@ -27,9 +27,9 @@ const NewMessages = () => {
     };
   }, []);
 
-  const handleUpdateInfo = (id) => {
+  const handleUpdateInfo = async (id) => {
     const refItem = ref(api, `messages/${id}`);
-    update(refItem, {
+    await update(refItem, {
       info: "",
     });
   };
