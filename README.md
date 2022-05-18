@@ -5,7 +5,7 @@ Mój pierwszy samodzielny projekt wykonany w `React`. Aplikacja czatu można dod
 ## Documentation
 Projekt został stworzone przez [create-react-app](https://github.com/facebook/create-react-app), w aplikacji zostały użyte następujące rozwiązania:
 
-* [firebase](https://www.npmjs.com/package/firebase) - baza danych (proszę i podłączenie własnej bazy danych)
+* [firebase](https://www.npmjs.com/package/firebase) - baza danych
 * [styled-components](https://github.com/styled-components/styled-components) - stylowanie projektu
 * [fontawesome](https://github.com/FortAwesome/Font-Awesome) - grafiki w aplikacji
 

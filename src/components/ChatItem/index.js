@@ -23,7 +23,7 @@ const ChatItem = (props) => {
           })}
         </ChatItemUl>
       ) : (
-       <ChatItemFound> Not found </ChatItemFound>
+       <ChatItemFound> Loading... </ChatItemFound>
       )}
     </div>
   );

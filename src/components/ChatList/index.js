@@ -2,64 +2,60 @@ import React, { useContext, useEffect, useState } from "react";
 import ChatItem from "../ChatItem";
 import AddItem from "../AddItem";
 import SearchEngine from "../SearchEngine";
-import NewMessages from '../ChatItem/NewMessages';
-import Footer from '../Footer';
+import NewMessages from "../ChatItem/NewMessages";
+import Footer from "../Footer";
 import authContext from "../../utility/Context";
-import api from "../../utility/firebase";
+import api, { ref, onValue, push } from "../../utility/firebase";
 const ChatList = () => {
   const [items, setItems] = useState([]);
   const [text, setText] = useState("");
   const [search, setSearch] = useState(items);
-  const { user } = useContext(authContext)
+  const { user } = useContext(authContext);
+
   useEffect(() => {
-    let ref = api.ref("/messages");
-    ref.on("value", (data) => {
-      let messages = data.val();
-      let newState = [];
-      for (let message in messages) {
+    const refDoc = ref(api, "messages");
+
+    const unsuscribe = onValue(refDoc, (snapshot) => {
+      const data = snapshot.val();
+      const newState = [];
+      for (let message in data) {
         newState.push({
           id: message,
-          content: messages[message].content,
-          datetime: messages[message].datetime,
-          user: messages[message].user,
+          content: data[message].content,
+          datetime: data[message].datetime,
+          user: data[message].user,
         });
       }
       setItems(newState);
       setSearch(newState);
-      ArchivingMessages(ref)
     });
+   
     return () => {
-      setItems([])
-    }
+      unsuscribe();
+    };
   }, []);
 
-const ArchivingMessages = (ref) => {
-  let now = Date.now();
-  let cutoff = now - 24 * 60 * 60 * 1000;
-  let old = ref.orderByChild('datetime').endAt(cutoff).limitToLast(1);
-    old.on('child_added', function(snapshot) {
-      snapshot.ref.remove();
-  });
-}
   const handleChange = (e) => {
     setText(e.target.value);
   };
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.preventDefault()
     const item = {
       content: text,
       user: user,
       datetime: Date.now(),
       info: `${user} send message`,
     };
+
     if (text) {
-      api
-        .ref("messages")
-        .push(item)
+      const docRef = ref(api, "messages");
+
+      push(docRef, item)
         .then(() => {
           setText("");
           window.scrollTo(0, document.body.scrollHeight);
         })
-        .catch((error) => console.log(error));
+        .catch((error) => console.log("Adding message error>>", error.message));
     } else {
       return alert("enter your message");
     }
@@ -67,7 +63,7 @@ const ArchivingMessages = (ref) => {
 
   return (
     <div>
-      <NewMessages /> 
+      <NewMessages />
       <SearchEngine items={items} setSearch={setSearch} />
       <ChatItem items={search} />
       <AddItem onChange={handleChange} value={text} onClick={handleClick} />
